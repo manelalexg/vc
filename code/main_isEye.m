@@ -24,20 +24,22 @@ taula_no_ulls.ull = repmat({'0'}, height(taula_no_ulls), 1);
 
 %Mesclem els datasets anteriors i seleccionem les dades dedicades al training de les
 %dedicades a les proves
-% separate training, testing data
-[ training_data, testing_data ] = split_data(eye_data, non_eye_data);
+taula = [taula_ulls; taula_no_ulls]; %concatenem les taules per fila
+files_taula = height(taula);
+taula_mesclada = taula(randperm(files_taula),:); %mesclem les taules
+percentatge_train = 0.9;
+num_files_train = percentatge_train*files_taula; %2700 per train
+    
+%repartim les dades en els sets corresponents
+training = taula_mesclada(1:num_files_train, :);
+testing = taula_mesclada(num_files_train+1:end, :);
 
-% train model
-%model = fitcsvm(training_data, 'class');
-model = TreeBagger(100,training_data,'class'); %variable respuesta class(eye o no eye)
-%model
-% Use ResponseVarName to specify label 'class'
+% Entrenem el model
+model = TreeBagger(100,training,'ull'); %executem TreeBagger(eye:1 o no-eye:0)
 
-% test model: precision, recall, accuracy
-testing_nolabel = testing_data;
-testing_nolabel.class = []; % remove class column, para ver si luego predice correcto
-prediction = predict(model, testing_nolabel);
-%prediction
-%testing_data.class
+% Provem el model entrenat
+testing_no_res = testing;
+testing_no_res.ull = []; %eliminem la variable a predir, desprès comprovarem si obtenim bons resultats
+prediccio = predict(model, testing_no_res); %predim el valor de la variable ull utilitzant el nostre model
 
-[conf_matrix,order ] = eval_prediction(prediction, testing_data.class)
+[conf_matrix,order ] = avaluar_prediccio(prediccio, testing.ull) %obtenim els resultats mitjnçant la matriu de confusió
