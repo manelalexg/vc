@@ -3,11 +3,11 @@ n = 300; %llegirem 150 imatges del dataset
 dir_dataset = 'dataset\';
 imatges = dir(strcat(dir_dataset, '*.pgm')); % llista d'imatges amb extensio bmp, es un struct
 dataset = cell(1,n);
-columna_mira = read_looking_data('Miram.xlsx'); %columna de mira o no del archivo
+columna_mira = llegir_columna_mirar('Miram.xlsx'); %columna de mira o no del archivo
 for i = 1 : n
     ruta_imatge = strcat(dir_dataset, imatges(i).name); %ruta_imatge = 'BioID_xxxx.pgm'
     ruta_info_ulls = strrep(ruta_imatge,'pgm','eye'); % ruta_info_ulls = 'data\BioId_xxxx.eye'    
-    imatge = imread(strcat(ruta_imatge)); %llegim la imatge
+    imatge = imread(ruta_imatge); %llegim la imatge
 
     if length(size(imatge)) == 3 %si la imatge és en color la convertim
         imatge = rgb2gray(imatge);
@@ -26,15 +26,15 @@ taula.ull = repmat({'1'}, height(taula), 1);
 
 %Dades per deteccio de mirada
 lookingV = get_looking_vector(dataset);
-taula.mira = lookingV'; %ponemos una nueva columna de looking en eye_data
-%eye_data
+taula.mira = lookingV'; %posem una nova columna de "mira" en la taula
+%taula
 
-%Mesclem el Ddataset i seleccionem les dades dedicades al training de les
+%Mesclem el dataset i seleccionem les dades dedicades al training de les
 %dedicades a les proves
 files_taula = height(taula);
 taula_mesclada = taula(randperm(files_taula),:); %mesclem les taules
 percentatge_train = 0.9;
-num_files_train = percentatge_train*files_taula; %2700 per train
+num_files_train = percentatge_train*files_taula; %270 per train
     
 %repartim les dades en els sets corresponents
 training = taula_mesclada(1:num_files_train, :);
@@ -47,5 +47,14 @@ model = TreeBagger(100,training,'mira'); %executem TreeBagger(mira:1 o no-mira:0
 testing_no_res = testing;
 testing_no_res.mira = []; %eliminem la variable a predir, desprès comprovarem si obtenim bons resultats
 prediccio = predict(model, testing_no_res); %predim el valor de la variable mira utilitzant el nostre model
+mira_coneguts = cellstr(num2str(testing.mira));%perque sigui del mateix tipus que 'prediccio'
+%obtenim els resultats mitjnçant la matriu de confusió
+[conf_matrix,order ] = avaluar_prediccio(prediccio, mira_coneguts);
+%para calcular accuracy
+%conf_matrix
+%order
+%conf_matrix(1,1)
+%conf_matrix(1,2)
+%conf_matrix(2,1)
+%conf_matrix(2,2)
 
-[conf_matrix,order ] = avaluar_prediccio(prediccio, testing.mira) %obtenim els resultats mitjnçant la matriu de confusió
