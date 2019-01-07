@@ -10,11 +10,11 @@ function [res] = obtenir_taula_no_ulls(dataset, mida)
                         randi(size(dt.imatge, 1) - mida(1), num_elems, 1)];
         %start_points
     
-        for j = 1:size(start_points, 1) %19 iteraciones por cada imagen
-            % crop subimage
+        for j = 1:size(start_points, 1) %19 iteracions per cada imatge
+            % crop subimatge
             no_ull = imcrop(dt.imatge, [start_points(j,:), mida]);
             %I = insertMarker(dt.image, [start_points(j,1) start_points(j,2)]);
-            %figure;imshow(img);
+            %figure;imshow(no_ull);
             %figure;imshow(I);
             
             % generate descriptors
@@ -23,10 +23,10 @@ function [res] = obtenir_taula_no_ulls(dataset, mida)
             if size(res) == 1
                res = f;
             end
-            res(num_elems*(i-1)+j) = f; %la primera seria en la pos 1783->18*99+1
-            %non_eye_data
+            res(num_elems*(i-1)+j) = f; %la primera seria en la pos 2071->19*(150-1)+1
+            %res
         end
     end
     res = struct2table(res);
-    %non_eye_data
+    %res
 end

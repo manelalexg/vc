@@ -11,7 +11,6 @@ function [res] = obtenir_taula_ulls(dataset, mida)
         end
         res(i) = f; %omplim la taula
     end
-    
     res = struct2table(res);
     %res
 end

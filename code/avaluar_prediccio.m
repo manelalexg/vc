@@ -1,6 +1,8 @@
 function [ conf,order ] = avaluar_prediccio(pred, truth)
-% EVAL_PREDICTION compute evaluating metrics about the prediction
-    % precision by class name
+%Calcula las métricas sobre la precisión de la predicción por el nombre la
+%variable que se quiere predecir.
+%Parametre pred: Predicció
+%Parametre truth: Clase coneguda
 
     [conf,order] = confusionmat(pred,truth); %en valors reals
     %conf
