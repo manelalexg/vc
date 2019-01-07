@@ -7,6 +7,10 @@ for i = 1 : n
     ruta_imatge = strcat(dir_dataset, imatges(i).name); %ruta_imatge = 'BioID_xxxx.pgm'
     ruta_info_ulls = strrep(ruta_imatge,'pgm','eye'); % ruta_info_ulls = 'data\BioId_xxxx.eye'    
     imatge = imread(strcat(ruta_imatge)); %llegim la imatge
+    
+    if length(size(imatge)) == 3 %si la imatge és en color la convertim
+        imatge = rgb2gray(imatge);
+    end
     %figure; imshow(imatge);
     
     %carreguem el dataset, cada element amb la imatge corresponent i la informacio dels ulls

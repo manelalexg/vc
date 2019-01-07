@@ -10,7 +10,7 @@ for i = 1 : n
     imatge = imread(strcat(ruta_imatge)); %llegim la imatge
 
     if length(size(imatge)) == 3 %si la imatge és en color la convertim
-        im = rgb2gray(im);
+        imatge = rgb2gray(imatge);
     end
     %figure; imshow(imatge);
     
