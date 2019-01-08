@@ -3,13 +3,8 @@ function [caracteristiques] = obtenir_caracteristiques(im)
 %   parametre im:           imagtge a descriure
 %   retorna features:    struct de caracteristiques
     
-    %fs es un array de funcions predefinides
     fs = {
-        @extractLBPFeatures,...
-        @Hog,...
-        @std2,...
-        @mean2,...
-        %@side_histogram,...
+        @extractLBPFeatures, @Hog, @std2, @mean2
     };
  
     caracteristiques = struct();
@@ -25,23 +20,11 @@ function [caracteristiques] = obtenir_caracteristiques(im)
              %pone nombre a cada campo del struct features
              caracteristiques.(nom) = fun_resultat(j);
         end
-        %caracteristiques
     end
-    %caracteristiques
 end
 
-function [caract] = Hog (im) % Tarda molt i no millora massa els resultats
-    [caractHOG, visualHOG] = extractHOGFeatures(im, 'CellSize', [32 32]);
+function [caract] = Hog (im)
+    [caractHOG, visualHOG] = extractHOGFeatures(im, 'CellSize', [16 16]);
+    %plot(visualHOG);
     caract = caractHOG;
-    %plot(visualHOG); %visualitzacio de les HOG features
-end
-
-function [hs] = side_histogram(im)
-    x = double(im);
-    %mean(x, 1) 
-    %mean(x, 2)' 
-    %std(x, 1, 1) 
-    %std(x, 1, 2)'
-    hs = [mean(x, 1) mean(x, 2)' std(x, 1, 1) std(x, 1, 2)'];
-    %bar(hs);
 end

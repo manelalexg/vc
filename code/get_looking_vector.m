@@ -1,10 +1,10 @@
-function [ looking ] = get_looking_vector(imgs)
+function [ res ] = get_looking_vector(imgs)
     %Convert 1xN cell to 1xN struct
     dataM = cell2mat(imgs);
     
     %Extract the 'looking' field from the 1xN struct
     %dataM
-    looking = extractfield(dataM,'mira');
+    res = extractfield(dataM,'mira');
     %looking
     
     %Duplicate each one because for each image there are 2 eyes.
