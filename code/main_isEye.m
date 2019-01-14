@@ -1,5 +1,5 @@
 %Carreguem el dataset
-n = 150; %llegirem 150 imatges del dataset
+n = 1520; %llegirem 150 imatges del dataset
 dir_dataset = 'dataset\';
 imatges = dir(strcat(dir_dataset, '*.pgm')); % llista d'imatges amb extensio bmp, es un struct
 dataset = cell(1,n); %info de imatges
@@ -56,6 +56,9 @@ for i = 1 : 10
     prediccio = predict(model, testing_no_res); %predim el valor de la variable ull utilitzant el nostre model
     %obtenim els resultats mitjnçant la matriu de confusió
     [conf,order] = confusionmat(testing.ull,prediccio) %en valors reals
+    
+    %testing.ull
+    %prediccio
     
     if i == 1
         main_order = ['0';'1'];        

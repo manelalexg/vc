@@ -4,8 +4,13 @@ function [caracteristiques] = obtenir_caracteristiques(im)
 %   retorna features:    struct de caracteristiques
     
     fs = {
-        @extractLBPFeatures, @Hog, @std2, @mean2
+        @extractLBPFeatures ...
+        @Hog ...
+        @std2 ...
+        @mean2
     };
+
+    size(fs,2)
  
     caracteristiques = struct();
     
@@ -27,4 +32,5 @@ function [caract] = Hog (im)
     [caractHOG, visualHOG] = extractHOGFeatures(im, 'CellSize', [16 16]);
     %plot(visualHOG);
     caract = caractHOG;
+    caract
 end
