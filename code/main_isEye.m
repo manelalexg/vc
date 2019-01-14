@@ -31,8 +31,7 @@ taula_no_ulls.ull = repmat({'0'}, height(taula_no_ulls), 1); %no_ull = 0
 taula = [taula_ulls; taula_no_ulls]; %concatenem les taules per fila
 files_taula = height(taula);
 
-main_order = zeros(2,1);
-
+main_order = {'0';'1'};
 total_0_pred = 0;
 total_0_no_pred = 0;
 total_1_pred = 0;
@@ -60,20 +59,21 @@ for i = 1 : 10
     %testing.ull
     %prediccio
     
-    if i == 1
-        main_order = ['0';'1'];        
-    end
+    %iff = 'if';
+    %elsee = 'else';
     
     if (isequal(main_order,order))
-        total_1_no_pred = total_1_no_pred + conf(1,1);
-        total_1_pred = total_1_pred + conf(1,2);
-        total_0_pred = total_0_pred + conf(2,1);
-        total_0_no_pred = total_0_no_pred + conf(2,2);
-    else
         total_1_no_pred = total_1_no_pred + conf(2,1);
         total_1_pred = total_1_pred + conf(2,2);
         total_0_pred = total_0_pred + conf(1,1);
         total_0_no_pred = total_0_no_pred + conf(1,2);
+        %iff
+    else
+        total_1_no_pred = total_1_no_pred + conf(1,2);
+        total_1_pred = total_1_pred + conf(1,1);
+        total_0_pred = total_0_pred + conf(2,2);
+        total_0_no_pred = total_0_no_pred + conf(2,1);
+        %elsee
     end
 end
 
@@ -82,7 +82,7 @@ total_1_pred = round(total_1_pred/10);
 total_0_pred = round(total_0_pred/10);
 total_0_no_pred = round(total_0_no_pred/10);
 total_conf = [total_0_pred total_0_no_pred; total_1_no_pred total_1_pred]
-main_order = ['0';'1']
+main_order
 accuracy = ((total_0_pred + total_1_pred)/(total_0_pred + total_1_pred + total_0_no_pred + total_1_no_pred))
 recall = ((total_1_pred)/(total_1_pred + total_1_no_pred))
 precision = ((total_1_pred)/(total_1_pred + total_0_no_pred))

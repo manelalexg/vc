@@ -10,7 +10,7 @@ function [caracteristiques] = obtenir_caracteristiques(im)
         @mean2
     };
 
-    size(fs,2)
+    %size(fs,2)
  
     caracteristiques = struct();
     
@@ -32,5 +32,5 @@ function [caract] = Hog (im)
     [caractHOG, visualHOG] = extractHOGFeatures(im, 'CellSize', [16 16]);
     %plot(visualHOG);
     caract = caractHOG;
-    caract
+    %caract
 end
