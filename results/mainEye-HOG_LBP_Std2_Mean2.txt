@@ -1,0 +1,176 @@
+>> main_isEye 
+
+conf =
+
+        8656           0
+           2         462
+
+
+order =
+
+  2×1 cell array
+
+    {'0'}
+    {'1'}
+
+
+conf =
+
+        8677           0
+           0         443
+
+
+order =
+
+  2×1 cell array
+
+    {'0'}
+    {'1'}
+
+
+conf =
+
+        8657           0
+           1         462
+
+
+order =
+
+  2×1 cell array
+
+    {'0'}
+    {'1'}
+
+
+conf =
+
+        8671           0
+           0         449
+
+
+order =
+
+  2×1 cell array
+
+    {'0'}
+    {'1'}
+
+
+conf =
+
+        8651           0
+           2         467
+
+
+order =
+
+  2×1 cell array
+
+    {'0'}
+    {'1'}
+
+
+conf =
+
+        8654           0
+           0         466
+
+
+order =
+
+  2×1 cell array
+
+    {'0'}
+    {'1'}
+
+
+conf =
+
+        8665           0
+           0         455
+
+
+order =
+
+  2×1 cell array
+
+    {'0'}
+    {'1'}
+
+
+conf =
+
+         472           0
+           0        8648
+
+
+order =
+
+  2×1 cell array
+
+    {'1'}
+    {'0'}
+
+
+conf =
+
+        8689           0
+           1         430
+
+
+order =
+
+  2×1 cell array
+
+    {'0'}
+    {'1'}
+
+
+conf =
+
+        8653           0
+           0         467
+
+
+order =
+
+  2×1 cell array
+
+    {'0'}
+    {'1'}
+
+
+total_conf =
+
+        8662           0
+           1         457
+
+
+main_order =
+
+  2×1 cell array
+
+    {'0'}
+    {'1'}
+
+
+accuracy =
+
+    0.9999
+
+
+recall =
+
+    0.9978
+
+
+precision =
+
+     1
+
+
+f1 =
+
+    0.9989
+
+>> 

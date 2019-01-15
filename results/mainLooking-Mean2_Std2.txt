@@ -1,0 +1,176 @@
+>> main_isLooking 
+
+conf =
+
+    82    16
+    16    38
+
+
+order =
+
+  2×1 cell array
+
+    {'1'}
+    {'0'}
+
+
+conf =
+
+    36    21
+    28    67
+
+
+order =
+
+  2×1 cell array
+
+    {'0'}
+    {'1'}
+
+
+conf =
+
+    83    15
+    20    34
+
+
+order =
+
+  2×1 cell array
+
+    {'1'}
+    {'0'}
+
+
+conf =
+
+    66    22
+    30    34
+
+
+order =
+
+  2×1 cell array
+
+    {'1'}
+    {'0'}
+
+
+conf =
+
+    37    26
+    17    72
+
+
+order =
+
+  2×1 cell array
+
+    {'0'}
+    {'1'}
+
+
+conf =
+
+    34    27
+    22    69
+
+
+order =
+
+  2×1 cell array
+
+    {'0'}
+    {'1'}
+
+
+conf =
+
+    46    27
+    17    62
+
+
+order =
+
+  2×1 cell array
+
+    {'0'}
+    {'1'}
+
+
+conf =
+
+    63    23
+    33    33
+
+
+order =
+
+  2×1 cell array
+
+    {'1'}
+    {'0'}
+
+
+conf =
+
+    81    19
+    16    36
+
+
+order =
+
+  2×1 cell array
+
+    {'1'}
+    {'0'}
+
+
+conf =
+
+    83    13
+    23    33
+
+
+order =
+
+  2×1 cell array
+
+    {'1'}
+    {'0'}
+
+
+total_conf =
+
+    36    24
+    19    73
+
+
+main_order =
+
+  2×1 cell array
+
+    {'0'}
+    {'1'}
+
+
+accuracy =
+
+    0.7171
+
+
+recall =
+
+    0.7935
+
+
+precision =
+
+    0.7526
+
+
+f1 =
+
+    0.7725
+
+>> 

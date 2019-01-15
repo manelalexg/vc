@@ -57,19 +57,25 @@ for i = 1 : 10
     testing_no_res.mira = []; %eliminem la variable a predir, desprès comprovarem si obtenim bons resultats
     prediccio = predict(model, testing_no_res); %predim el valor de la variable mira utilitzant el nostre model
     mira_coneguts = cellstr(num2str(testing.mira));%perque sigui del mateix tipus que 'prediccio'
+    %prediccio
+    %mira_coneguts
     %obtenim els resultats mitjnçant la matriu de confusió
-    [conf,order] = confusionmat(mira_coneguts,prediccio); %en valors reals
+    [conf,order] = confusionmat(mira_coneguts,prediccio) %en valors reals
     
+    %iff = 'if';
+    %elsee = 'else';
     if (isequal(main_order,order))
         total_1_no_pred = total_1_no_pred + conf(2,1);
         total_1_pred = total_1_pred + conf(2,2);
         total_0_pred = total_0_pred + conf(1,1);
         total_0_no_pred = total_0_no_pred + conf(1,2);
+        %iff
     else
         total_1_no_pred = total_1_no_pred + conf(1,2);
         total_1_pred = total_1_pred + conf(1,1);
         total_0_pred = total_0_pred + conf(2,2);
         total_0_no_pred = total_0_no_pred + conf(2,1);
+        %elsee
     end
 end
 
