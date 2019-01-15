@@ -1,5 +1,5 @@
 %Carreguem el dataset
-n = 1520; %llegirem 300 imatges del dataset
+n = 1520; %llegirem 1520 imatges del dataset
 dir_dataset = 'dataset\';
 imatges = dir(strcat(dir_dataset, '*.pgm')); % llista d'imatges amb extensio bmp, es un struct
 dataset = cell(1,n);
@@ -42,7 +42,7 @@ total_1_no_pred = 0;
 for i = 1 : 10
     taula_mesclada = taula(randperm(files_taula),:); %mesclem les taules
     percentatge_train = 0.9;
-    num_files_train = percentatge_train*files_taula; %270 per train
+    num_files_train = percentatge_train*files_taula; %1368 per train
 
     %repartim les dades en els sets corresponents
     training = taula_mesclada(1:num_files_train, :);

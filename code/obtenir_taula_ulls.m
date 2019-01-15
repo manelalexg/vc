@@ -2,8 +2,8 @@ function [res] = obtenir_taula_ulls(dataset, mida)
     res = struct();
     
     for i = length(dataset):-1:1
-        ull = obtenir_imatge_ulls(dataset{i}, mida); %obtenim els ulls
-        f = obtenir_caracteristiques(ull); %obtenim caracteristiques dels dos ulls
+        ulls = obtenir_imatge_ulls(dataset{i}, mida); %obtenim els ulls
+        f = obtenir_caracteristiques(ulls); %obtenim caracteristiques dels dos ulls
         
         %inicialitzem el contenidor
         if size(res) == 1

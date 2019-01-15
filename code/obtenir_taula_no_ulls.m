@@ -1,6 +1,6 @@
 function [res] = obtenir_taula_no_ulls(dataset, mida)
     res = struct();
-    num_elems = 19; %numero d'elements no ull per imatge (150->5%....150*19->95%)
+    num_elems = 19; %numero d'elements no ull per imatge (1520->5%....1520*19->95%)
     mida = mida - 1; % imcrop random behaviour
     
     for i = length(dataset):-1:1
