@@ -37,7 +37,7 @@ total_0_no_pred = 0;
 total_1_pred = 0;
 total_1_no_pred = 0;
 
-for i = 1 : 5
+for i = 1 : 10
     taula_mesclada = taula(randperm(files_taula),:); %mesclem les taules
     percentatge_train = 0.9;
     num_files_train = percentatge_train*files_taula; %27360 per train
